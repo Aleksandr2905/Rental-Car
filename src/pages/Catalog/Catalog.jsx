@@ -1,16 +1,18 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectCars } from '../../components/redux/selectors';
+import { useDispatch } from 'react-redux';
 import { requestCatalogCar } from '../../components/redux/thunks';
+import { CarList } from '../../components/CarList/CarList';
 
 export const Catalog = () => {
-  const cars = useSelector(selectCars);
-  console.log(cars);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(requestCatalogCar());
   }, [dispatch]);
 
-  return <div>Catalog</div>;
+  return (
+    <div>
+      <CarList />
+    </div>
+  );
 };
