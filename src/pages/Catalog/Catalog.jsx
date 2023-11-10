@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { requestCatalogCar } from '../../components/redux/thunks';
+import { requestCatalogCar } from '../../redux/thunks';
 import { CarList } from '../../components/CarList/CarList';
 
 export const Catalog = () => {

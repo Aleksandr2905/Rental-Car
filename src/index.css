@@ -1,8 +1,10 @@
 body {
+  max-width: 1440px;
   margin: 0;
   font-family: -apple-system, 'Manrope', sans-serif;;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #FFFFF0;
 }
 
 code {
@@ -42,8 +44,8 @@ h4,
 p,
 ul,
 li {
-  margin-top: 0;
-  margin-bottom: 0;
+  margin: 0;
+  padding: 0;
 }
 
 img {
@@ -54,7 +56,3 @@ button {
   cursor: pointer;
 }
 
-.container {
-  padding-left: 60px;
-  padding-right: 60px;
-}

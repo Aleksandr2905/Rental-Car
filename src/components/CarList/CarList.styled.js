@@ -6,6 +6,11 @@ export const ListCar = styled.ul`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-top: 90px;
+  margin-left: auto;
+  margin-right: auto;
   column-gap: 29px;
   row-gap: 50px;
 `;

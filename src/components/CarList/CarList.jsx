@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { selectCars } from '../redux/selectors';
+import { selectCars } from '../../redux/selectors';
+import noImg from '../../images/no-photo.png';
 import {
   CardButton,
   CardInfoCar,
@@ -26,7 +27,12 @@ export const CarList = () => {
 
           return (
             <CardWrapper key={car.id}>
-              <ImgCar src={car.img} alt={car.make} width="274" height="268" />
+              <ImgCar
+                src={car.img ?? noImg}
+                alt={car.make}
+                width="274"
+                height="268"
+              />
               <CardTitle>
                 <MakeCar>
                   {car.make}
