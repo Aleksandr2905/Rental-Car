@@ -82,11 +82,13 @@ export const CarList = () => {
         setPage={setPage}
         setShowLoadMore={setShowLoadMore}
       />
+      (
       <Modal
         onCloseModal={onCloseModal}
         modalData={modal.modalData}
         isOpen={modal.isOpen}
       />
+      )
     </>
   );
 };

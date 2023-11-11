@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { requestCatalogCar } from '../../redux/thunks';
+import { requestFirstPage } from '../../redux/thunks';
 import { CarList } from '../../components/CarList/CarList';
 
 export const Catalog = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(requestCatalogCar());
+    dispatch(requestFirstPage());
   }, [dispatch]);
 
   return (

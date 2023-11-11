@@ -7,8 +7,7 @@ export const LoadMore = ({ page, setPage, setShowLoadMore }) => {
   const dispatch = useDispatch();
 
   const handleLoadMore = async () => {
-    const { payload } = await dispatch(requestCatalogCar(page));
-    console.log(payload);
+    const { payload } = await dispatch(requestCatalogCar(page + 1));
     setPage(prevPage => prevPage + 1);
     if (payload.length >= 12) {
       setShowLoadMore(true);

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { requestCatalogCar } from './thunks';
+import { requestCatalogCar, requestFirstPage } from './thunks';
 
 const initialState = {
   cars: [],
@@ -12,13 +12,26 @@ const carsSlice = createSlice({
   initialState,
   extraReducers: builder => {
     builder
+      .addCase(requestFirstPage.pending, state => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(requestFirstPage.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.cars = action.payload;
+        state.error = null;
+      })
+      .addCase(requestFirstPage.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
       .addCase(requestCatalogCar.pending, state => {
         state.isLoading = true;
         state.error = null;
       })
       .addCase(requestCatalogCar.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.cars = action.payload;
+        state.cars = [...state.cars, ...action.payload];
         state.error = null;
       })
       .addCase(requestCatalogCar.rejected, (state, action) => {
