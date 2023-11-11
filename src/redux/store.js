@@ -1,7 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-// import storage from 'redux-persist/lib/storage';
+import storage from 'redux-persist/lib/storage';
 import {
   persistStore,
+  persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -11,14 +12,14 @@ import {
 } from 'redux-persist';
 import { carsReducer } from './carReducer';
 
-// const carPersistConfig = {
-//   key: 'cars',
-//   storage,
-// };
+const carPersistConfig = {
+  key: 'cars',
+  storage,
+};
 
 const store = configureStore({
   reducer: {
-    cars: carsReducer,
+    cars: persistReducer(carPersistConfig, carsReducer),
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

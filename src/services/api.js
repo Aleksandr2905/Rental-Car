@@ -8,13 +8,13 @@ export const fetchRequestCatalogCar = async (page = 1) => {
   const { data } = await $instance.get('/advert', {
     params: {
       page: page,
-      // limit: 12,
+      limit: 12,
     },
   });
   return data;
 };
 
-// export const fetchRequestCarById = async id => {
-//   const { data } = await $instance.get(`/advert/${id}`);
-//   return data;
-// };
+export const fetchRequestCarById = async id => {
+  const { data } = await $instance.get(`/advert/${id}`);
+  return data;
+};

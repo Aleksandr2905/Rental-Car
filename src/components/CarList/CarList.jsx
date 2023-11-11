@@ -1,5 +1,5 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectCars } from '../../redux/selectors';
 import noImg from '../../images/no-photo.png';
 import {
@@ -13,16 +13,36 @@ import {
   ModelCar,
   PriceCar,
 } from './CarList.styled';
+import { LoadMore } from '../LoadMore/LoadMore';
+import { Modal } from '../Modal/Modal';
+import { requestCatalogCar } from '../../redux/thunks';
 
 export const CarList = () => {
+  const dispatch = useDispatch();
   const cars = useSelector(selectCars);
-  console.log(cars);
+  const [modal, setModal] = useState({ isOpen: false, modalData: null });
+  const [page, setPage] = useState(1);
+  const [showLoadMore, setShowLoadMore] = useState(false);
+
+  useEffect(() => {
+    if (page === 1) {
+      dispatch(requestCatalogCar());
+    }
+  }, [dispatch, page]);
+
+  const onOpenModal = modalData => {
+    setModal({ isOpen: true, modalData: modalData });
+  };
+
+  const onCloseModal = () => {
+    setModal({ isOpen: false, modalData: null });
+  };
 
   return (
     <>
       <ListCar>
         {cars.map(car => {
-          const city = car.address.split(',')[1].trim();
+          const city = (car.address.split(',')[1] || '').trim();
           const country = (car.address.split(',')[2] || '').trim();
 
           return (
@@ -50,11 +70,23 @@ export const CarList = () => {
                 <p>{car.id} | </p>
                 <p>{car.functionalities[0]}</p>
               </CardInfoCar>
-              <CardButton type="button">Learn more</CardButton>
+              <CardButton type="button" onClick={onOpenModal}>
+                Learn more
+              </CardButton>
             </CardWrapper>
           );
         })}
       </ListCar>
+      <LoadMore
+        page={page}
+        setPage={setPage}
+        setShowLoadMore={setShowLoadMore}
+      />
+      <Modal
+        onCloseModal={onCloseModal}
+        modalData={modal.modalData}
+        isOpen={modal.isOpen}
+      />
     </>
   );
 };
