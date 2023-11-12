@@ -65,7 +65,13 @@ export const Modal = ({ onCloseModal, isOpen, modalData }) => {
             </svg>
           </BtnCloseModal>
           <ModalContent>
-            <ImgModal src={modalData.img || noImg} alt={modalData.make} />
+            <ImgModal
+              src={modalData.img || noImg}
+              alt={modalData.make}
+              onError={e => {
+                e.target.src = noImg;
+              }}
+            />
             <TitleModal>
               {modalData.make} <span>{modalData.model},</span> {modalData.year}
             </TitleModal>

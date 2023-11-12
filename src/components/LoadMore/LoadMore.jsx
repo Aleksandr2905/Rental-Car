@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from './LoadMore.styled';
 import { useDispatch } from 'react-redux';
 import { requestCatalogCar } from '../../redux/thunks';
 
-export const LoadMore = ({ page, setPage, setShowLoadMore }) => {
+export const LoadMore = ({ page, setPage }) => {
   const dispatch = useDispatch();
+  const [showLoadMore, setShowLoadMore] = useState(true);
 
   const handleLoadMore = async () => {
     const { payload } = await dispatch(requestCatalogCar(page + 1));
@@ -18,9 +19,11 @@ export const LoadMore = ({ page, setPage, setShowLoadMore }) => {
 
   return (
     <>
-      <Button type="button" onClick={handleLoadMore}>
-        Load more
-      </Button>
+      {showLoadMore && (
+        <Button type="button" onClick={handleLoadMore}>
+          Load more
+        </Button>
+      )}
     </>
   );
 };

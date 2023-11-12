@@ -22,7 +22,6 @@ export const CarList = () => {
   const cars = useSelector(selectCars);
   const [modal, setModal] = useState({ isOpen: false, modalData: null });
   const [page, setPage] = useState(1);
-  const [showLoadMore, setShowLoadMore] = useState(false);
 
   useEffect(() => {
     if (page === 1) {
@@ -52,6 +51,9 @@ export const CarList = () => {
                 alt={car.make}
                 width="274"
                 height="268"
+                onError={e => {
+                  e.target.src = noImg;
+                }}
               />
               <CardTitle>
                 <MakeCar>
@@ -77,18 +79,13 @@ export const CarList = () => {
           );
         })}
       </ListCar>
-      <LoadMore
-        page={page}
-        setPage={setPage}
-        setShowLoadMore={setShowLoadMore}
-      />
-      (
+      <LoadMore page={page} setPage={setPage} />
+
       <Modal
         onCloseModal={onCloseModal}
         modalData={modal.modalData}
         isOpen={modal.isOpen}
       />
-      )
     </>
   );
 };
