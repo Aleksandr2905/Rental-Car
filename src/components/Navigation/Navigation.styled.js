@@ -8,7 +8,7 @@ export const NavigationWrap = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 60px;
+  padding: 0 60px;
   margin: 0 auto;
   position: fixed;
   background-color: var(--primary-background-color);
@@ -26,6 +26,15 @@ export const NavigationWrap = styled.div`
     height: 3px;
     background-color: var(--primary-background-color);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+`;
+
+export const Logo = styled(NavLink)`
+  display: flex;
+  align-items: center;
+
+  & img {
+    width: 200px;
   }
 `;
 

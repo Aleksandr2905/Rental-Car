@@ -1,14 +1,13 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import logo from '../../images/rental-car.png';
-import { BtnNav, BtnWrapper, NavigationWrap } from './Navigation.styled';
+import logo from '../../images/logo.png';
+import { BtnNav, BtnWrapper, Logo, NavigationWrap } from './Navigation.styled';
 
 export const Navigation = () => {
   return (
     <NavigationWrap>
-      <NavLink to="/">
+      <Logo to="/">
         <img src={logo} alt="logo" />
-      </NavLink>
+      </Logo>
       <BtnWrapper>
         <BtnNav to="/">Home</BtnNav>
         <BtnNav to="/catalog">Catalog</BtnNav>
