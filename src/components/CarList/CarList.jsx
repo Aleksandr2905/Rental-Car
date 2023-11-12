@@ -30,8 +30,8 @@ export const CarList = () => {
     }
   }, [dispatch, page]);
 
-  const onOpenModal = modalData => {
-    setModal({ isOpen: true, modalData: modalData });
+  const onOpenModal = car => {
+    setModal({ isOpen: true, modalData: car });
   };
 
   const onCloseModal = () => {
@@ -48,7 +48,7 @@ export const CarList = () => {
           return (
             <CardWrapper key={car.id}>
               <ImgCar
-                src={car.img ?? noImg}
+                src={car.img || noImg}
                 alt={car.make}
                 width="274"
                 height="268"
@@ -70,7 +70,7 @@ export const CarList = () => {
                 <p>{car.id} | </p>
                 <p>{car.functionalities[0]}</p>
               </CardInfoCar>
-              <CardButton type="button" onClick={onOpenModal}>
+              <CardButton type="button" onClick={() => onOpenModal(car)}>
                 Learn more
               </CardButton>
             </CardWrapper>

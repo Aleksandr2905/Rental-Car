@@ -11,11 +11,11 @@ export const NavigationWrap = styled.div`
   padding: 14px 60px;
   margin: 0 auto;
   position: fixed;
-  background-color: #fffff0;
+  background-color: var(--primary-background-color);
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 99;
+  z-index: 1;
 
   &:after {
     content: '';
@@ -24,7 +24,7 @@ export const NavigationWrap = styled.div`
     left: 0;
     width: 100%;
     height: 3px;
-    background-color: #fffff0;
+    background-color: var(--primary-background-color);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 `;

@@ -4,7 +4,7 @@ body {
   font-family: -apple-system, 'Manrope', sans-serif;;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #FFFFF0;
+  background-color: var(--primary-background-color);
 }
 
 code {
@@ -13,11 +13,14 @@ code {
 }
 
 :root {
+  --primary-background-color: #fffffa;
   --primary-text-color: #121417;
   --secondary-text-color: #12141780;
   --accent-color: #3470FF;
   --button-text-color: #ffffff;
   --color-hover: #0B44CD;
+  --conditions-background-color: #f9f9f9;
+  --conditions-text-color: #363535;
 }
 
 * {
