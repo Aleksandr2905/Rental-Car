@@ -18,3 +18,8 @@ export const fetchRequestCarById = async id => {
   const { data } = await $instance.get(`/advert/${id}`);
   return data;
 };
+
+export const fetchRequestFilters = async () => {
+  const { data } = await $instance.get('/advert');
+  return data;
+};

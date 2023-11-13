@@ -21,6 +21,8 @@ code {
   --color-hover: #0B44CD;
   --conditions-background-color: #f9f9f9;
   --conditions-text-color: #363535;
+  --label-text-color: #8a8a89;
+  --input-background-color: #f7f7fb;
 }
 
 * {

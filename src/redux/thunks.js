@@ -1,5 +1,10 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import { fetchRequestCatalogCar, fetchRequestFirst } from '../services/api';
+import { createAction, createAsyncThunk } from '@reduxjs/toolkit';
+import {
+  fetchRequestCarById,
+  fetchRequestCatalogCar,
+  fetchRequestFilters,
+  fetchRequestFirst,
+} from '../services/api';
 
 export const requestFirstPage = createAsyncThunk(
   'advert/requestFirstPage',
@@ -18,6 +23,30 @@ export const requestCatalogCar = createAsyncThunk(
   async (page, thunkAPI) => {
     try {
       const response = await fetchRequestCatalogCar(page);
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const requestCarById = createAsyncThunk(
+  'advert/requestCarById',
+  async (id, thunkAPI) => {
+    try {
+      const response = await fetchRequestCarById(id);
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const requestFilters = createAction(
+  'advert/requestFilters',
+  async (_, thunkAPI) => {
+    try {
+      const response = await fetchRequestFilters();
       return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
