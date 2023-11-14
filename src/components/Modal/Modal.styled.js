@@ -1,20 +1,20 @@
 import styled from 'styled-components';
 
 export const Backdrop = styled.div`
-  /* width: 100vw;
-  height: 100vh; */
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 999;
 `;
 
 export const Container = styled.div`
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
   background-color: #ffffff;
   border: 1px solid #dce3e5cc;
   border-radius: 24px;

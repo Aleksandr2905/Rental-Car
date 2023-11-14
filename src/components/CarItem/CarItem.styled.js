@@ -37,6 +37,7 @@ export const FavorWrap = styled.div`
 `;
 
 export const BtnFavor = styled.button`
+  background-color: ${props => props.color};
   border: none;
   background-color: transparent;
   position: absolute;
@@ -51,16 +52,8 @@ export const BtnFavor = styled.button`
     transform: scale(1.2);
   }
 
-  &:active {
-    background-color: red;
-  }
-
-  & use {
-    /* position: absolute;
-    top: 14px;
-    right: 14px;
-    width: 18px;
-    height: 18px; */
+  svg {
+    stroke: ${props => props.iconColor};
   }
 `;
 

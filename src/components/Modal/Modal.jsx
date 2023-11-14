@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
-import ReactDOM from 'react-dom';
 import { Backdrop, BtnCloseModal, Container } from './Modal.styled';
 import sprite from '../../images/sprite.svg';
 
-export const Modal = ({ isOpen, onCloseModal, children }) => {
+export const Modal = ({ isModalOpen, onCloseModal, children }) => {
   const onBackdropClick = event => {
     if (event.target === event.currentTarget) {
       onCloseModal();
@@ -12,31 +11,25 @@ export const Modal = ({ isOpen, onCloseModal, children }) => {
 
   useEffect(() => {
     const handleEscape = event => {
-      if (isOpen && event.key === 'Escape') {
+      if (isModalOpen && event.key === 'Escape') {
         onCloseModal();
       }
     };
-    document.body.style.overflow = isOpen ? 'hidden' : 'auto';
+    document.body.style.overflow = isModalOpen ? 'hidden' : 'auto';
     window.addEventListener('keydown', handleEscape);
     return () => {
       window.removeEventListener('keydown', handleEscape);
       document.body.style.overflow = 'auto';
     };
-  }, [isOpen, onCloseModal]);
+  }, [isModalOpen, onCloseModal]);
 
-  if (!isOpen) {
+  if (!isModalOpen) {
     return null;
   }
 
-  return ReactDOM.createPortal(
+  return (
     <Backdrop onClick={onBackdropClick}>
-      <Container
-        id="modal-container"
-        key="modal"
-        animate={isOpen ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
-        exit={{ opacity: 0, scale: 0 }}
-        transition={{ duration: 0.5 }}
-      >
+      <Container>
         <BtnCloseModal type="button" onClick={onCloseModal}>
           <svg width="24" height="24">
             <use href={`${sprite}#icon-x`} />
@@ -44,7 +37,6 @@ export const Modal = ({ isOpen, onCloseModal, children }) => {
         </BtnCloseModal>
         {children}
       </Container>
-    </Backdrop>,
-    document.getElementById('modal-root')
+    </Backdrop>
   );
 };

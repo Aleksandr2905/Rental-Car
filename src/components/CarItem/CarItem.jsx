@@ -4,7 +4,6 @@ import { requestCarById } from '../../redux/thunks';
 import noImg from '../../images/no-photo.png';
 import sprite from '../../images/sprite.svg';
 import { selectFavorite } from '../../redux/selectors.js';
-import { AnimatePresence } from 'framer-motion';
 import { addFavorite, removeFavorite } from '../../redux/favoriteReducer.js';
 import {
   CardInfoCar,
@@ -92,15 +91,14 @@ export const CarItem = ({ car }) => {
         <p>{car.functionalities[0]}</p>
       </CardInfoCar>
       <BtnLearnMore car={car} onClick={onOpenModal} />
-      <AnimatePresence>
-        {isModalOpen && (
-          <CarInfo
-            isModalOpen={isModalOpen}
-            onCloseModal={onCloseModal}
-            car={car}
-          />
-        )}
-      </AnimatePresence>
+
+      {isModalOpen && (
+        <CarInfo
+          isModalOpen={isModalOpen}
+          onCloseModal={onCloseModal}
+          car={car}
+        />
+      )}
     </CardWrapper>
   );
 };
