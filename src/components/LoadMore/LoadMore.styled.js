@@ -7,7 +7,7 @@ export const Button = styled.button`
   line-height: 24px;
   text-decoration-line: underline;
   border: none;
-  margin-bottom: 150px;
+  margin-bottom: 70px;
   margin-left: auto;
   margin-right: auto;
   background-color: transparent;

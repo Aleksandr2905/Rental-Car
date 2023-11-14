@@ -23,17 +23,7 @@ export const ImgWrap = styled.div`
 `;
 
 export const FavorWrap = styled.div`
-  /* position: absolute;
-  top: 14px;
-  right: 14px;
-  width: 18px;
-  height: 18px;
   cursor: pointer;
-  z-index: 2; */
-
-  /* &:hover {
-    transform: scale(1.3);
-  } */
 `;
 
 export const BtnFavor = styled.button`

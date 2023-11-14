@@ -1,18 +1,5 @@
 import styled from 'styled-components';
 
-// export const ModalWrap = styled.div`
-//   border-radius: 12px;
-//   background-color: var(--primary-background-color);
-//   width: 541px;
-
-//   position: relative;
-//   z-index: 101;
-//   transition: all 0.3s;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-// `;
-
 export const BtnCloseModal = styled.button`
   position: absolute;
   top: 16px;
