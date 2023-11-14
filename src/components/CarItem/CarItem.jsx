@@ -38,7 +38,7 @@ export const CarItem = ({ car }) => {
   const handleFavorite = event => {
     setIsFavorite(!isFavorite);
 
-    if (favoriteCars.some(favorCar => favorCar.id === car.id)) {
+    if (isFavorite) {
       dispatch(removeFavorite(car));
     } else {
       dispatch(addFavorite(car));
@@ -54,55 +54,53 @@ export const CarItem = ({ car }) => {
     setIsModalOpen(false);
   };
   return (
-    <>
-      <CardWrapper>
-        <ImgWrap>
-          <FavorWrap onClick={handleFavorite}>
-            <BtnFavor type="button">
-              <svg width="20" height="20">
-                <use href={`${sprite}#icon-heart`} />
-              </svg>
-            </BtnFavor>
-          </FavorWrap>
-          <ImgCar
-            src={car.img || noImg}
-            alt={car.make}
-            width="274"
-            height="268"
-            onError={e => {
-              e.target.src = noImg;
-            }}
-          />
-        </ImgWrap>
+    <CardWrapper>
+      <ImgWrap>
+        <FavorWrap onClick={handleFavorite}>
+          <BtnFavor type="button">
+            <svg width="18" height="18">
+              <use href={`${sprite}#icon-heart`} />
+            </svg>
+          </BtnFavor>
+        </FavorWrap>
+        <ImgCar
+          src={car.img || noImg}
+          alt={car.make}
+          width="274"
+          height="268"
+          onError={e => {
+            e.target.src = noImg;
+          }}
+        />
+      </ImgWrap>
 
-        <CardTitle>
-          <MakeCar>
-            {car.make}
-            <ModelCar>&#x20;{car.model},&#x20;</ModelCar>
-            {car.year}
-          </MakeCar>
-          <PriceCar>{car.rentalPrice}</PriceCar>
-        </CardTitle>
-        <CardInfoCar>
-          <p>{city} | </p>
-          <p>{country} | </p>
-          <p>{car.rentalCompany} | </p>
-          <p>{car.type} | </p>
-          <p>{car.model} | </p>
-          <p>{car.id} | </p>
-          <p>{car.functionalities[0]}</p>
-        </CardInfoCar>
-        <BtnLearnMore car={car} onClick={onOpenModal} />
-        <AnimatePresence>
-          {isModalOpen && (
-            <CarInfo
-              isModalOpen={isModalOpen}
-              onCloseModal={onCloseModal}
-              car={car}
-            />
-          )}
-        </AnimatePresence>
-      </CardWrapper>
-    </>
+      <CardTitle>
+        <MakeCar>
+          {car.make}
+          <ModelCar>&#x20;{car.model},&#x20;</ModelCar>
+          {car.year}
+        </MakeCar>
+        <PriceCar>{car.rentalPrice}</PriceCar>
+      </CardTitle>
+      <CardInfoCar>
+        <p>{city} | </p>
+        <p>{country} | </p>
+        <p>{car.rentalCompany} | </p>
+        <p>{car.type} | </p>
+        <p>{car.model} | </p>
+        <p>{car.id} | </p>
+        <p>{car.functionalities[0]}</p>
+      </CardInfoCar>
+      <BtnLearnMore car={car} onClick={onOpenModal} />
+      <AnimatePresence>
+        {isModalOpen && (
+          <CarInfo
+            isModalOpen={isModalOpen}
+            onCloseModal={onCloseModal}
+            car={car}
+          />
+        )}
+      </AnimatePresence>
+    </CardWrapper>
   );
 };

@@ -44,7 +44,7 @@ export const Catalog = () => {
 
   return (
     <>
-      <Filter setFiltering={setFiltering} />
+      <Filter setFiltering={setFiltering} setShowButton={setShowButton} />
       {filtering ? (
         filterCars.length === 0 ? (
           <p>

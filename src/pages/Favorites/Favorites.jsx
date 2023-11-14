@@ -6,12 +6,11 @@ import { FavoriteWrap } from './Favorites.styled';
 
 export const Favorites = () => {
   const { favoriteCars } = useSelector(selectFavorite);
-
   return (
     <>
       <FavoriteWrap>
         <h1>Your Favorite Cars</h1>
-        {favoriteCars.lenght > 0 ? (
+        {favoriteCars.length > 0 ? (
           <CarList carsArr={favoriteCars} />
         ) : (
           <h2>Not Favorite Cars</h2>

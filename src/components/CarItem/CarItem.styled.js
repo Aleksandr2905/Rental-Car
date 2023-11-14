@@ -5,6 +5,7 @@ export const CardWrapper = styled.div`
   flex-direction: column;
   width: 274px;
   height: 426px;
+  position: relative;
 `;
 
 export const ImgWrap = styled.div`
@@ -22,32 +23,44 @@ export const ImgWrap = styled.div`
 `;
 
 export const FavorWrap = styled.div`
-  position: absolute;
-  top: 14;
-  right: 14;
-  width: 20px;
-  height: 20px;
+  /* position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  z-index: 2; */
 
-  &:hover {
+  /* &:hover {
     transform: scale(1.3);
-  }
+  } */
 `;
 
 export const BtnFavor = styled.button`
   border: none;
   background-color: transparent;
   position: absolute;
-  top: 14;
-  right: 14;
-  width: 20px;
-  height: 20px;
+  cursor: pointer;
+  top: 14px;
+  right: 14px;
+  width: 18px;
+  height: 18px;
+  padding: 0;
 
   &:hover {
-    transform: scale(1.3);
+    transform: scale(1.2);
+  }
+
+  &:active {
+    background-color: red;
   }
 
   & use {
-    stroke: red;
+    /* position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 18px;
+    height: 18px; */
   }
 `;
 
