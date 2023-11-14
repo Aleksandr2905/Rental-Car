@@ -4,6 +4,7 @@ import { requestCarById } from '../../redux/thunks';
 import noImg from '../../images/no-photo.png';
 import sprite from '../../images/sprite.svg';
 import { selectFavorite } from '../../redux/selectors.js';
+import { AnimatePresence } from 'framer-motion';
 import { addFavorite, removeFavorite } from '../../redux/favoriteReducer.js';
 import {
   CardInfoCar,
@@ -18,20 +19,9 @@ import {
   FavorWrap,
 } from './CarItem.styled';
 import { BtnLearnMore } from '../BtnLearnMore/BtnLearnMore';
+import { CarInfo } from '../CarInfo/CarInfo.jsx';
 
 export const CarItem = ({ car }) => {
-  // const {
-  //   id,
-  //   year,
-  //   make,
-  //   model,
-  //   type,
-  //   img,
-  //   functionalities,
-  //   rentalPrice,
-  //   rentalCompany,
-  //   address,
-  // } = car;
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
@@ -46,7 +36,6 @@ export const CarItem = ({ car }) => {
   }, [car, favoriteCars]);
 
   const handleFavorite = event => {
-    event.preventDefault();
     setIsFavorite(!isFavorite);
 
     if (favoriteCars.some(favorCar => favorCar.id === car.id)) {
@@ -104,6 +93,15 @@ export const CarItem = ({ car }) => {
           <p>{car.functionalities[0]}</p>
         </CardInfoCar>
         <BtnLearnMore car={car} onClick={onOpenModal} />
+        <AnimatePresence>
+          {isModalOpen && (
+            <CarInfo
+              isModalOpen={isModalOpen}
+              onCloseModal={onCloseModal}
+              car={car}
+            />
+          )}
+        </AnimatePresence>
       </CardWrapper>
     </>
   );

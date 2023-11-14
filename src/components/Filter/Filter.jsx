@@ -14,11 +14,11 @@ import { useDispatch } from 'react-redux';
 import { setFilter } from '../../redux/filterReducer';
 import { requestFirstPage } from '../../redux/thunks';
 
-export const Filter = ({ setFiltering }) => {
+export const Filter = ({ setFiltering, setShowButton }) => {
   const [price, setPrice] = useState('');
   const [mileageMin, setMileageMin] = useState('');
   const [mileageMax, setMileageMax] = useState('');
-  const [isDisabled, setIsDisabled] = useState('');
+  const [isDisabled, setIsDisabled] = useState(true);
   const [valuePrice, setValuePrice] = useState({ value: '', label: 'To $' });
   const [valueBrand, setValueBrand] = useState({
     value: '',
@@ -37,7 +37,7 @@ export const Filter = ({ setFiltering }) => {
     } else {
       setIsDisabled(true);
     }
-  }, [mileageMax, mileageMin, valueBrand.label, valuePrice.label]);
+  }, [mileageMax, mileageMin, valueBrand, valuePrice]);
 
   const handleChangeBrand = selectOption => {
     setValueBrand({
@@ -73,7 +73,7 @@ export const Filter = ({ setFiltering }) => {
     event.preventDefault();
     const newFilterQuery = {
       make: valueBrand.value.toLowerCase().trim() || '',
-      price: price || '',
+      price: price || 300,
       mileageMin: mileageMin.split(',').join('') || 0,
       mileageMax: mileageMax.split(',').join('') || 99999,
     };
@@ -83,20 +83,19 @@ export const Filter = ({ setFiltering }) => {
 
   const handleResetClick = event => {
     event.preventDefault();
-    setPrice('');
-    setMileageMin('');
-    setMileageMax('');
-    setValueBrand({
-      value: '',
-      label: 'Enter the text',
-    });
+    dispatch(requestFirstPage());
+    setFiltering(false);
     setValuePrice({
       value: '',
       label: 'To $',
     });
-    setIsDisabled(true);
-    dispatch(requestFirstPage());
-    setFiltering(false);
+    setValueBrand({
+      value: '',
+      label: 'Enter the text',
+    });
+    setMileageMin('');
+    setMileageMax('');
+    setShowButton(true);
   };
 
   return (
@@ -125,9 +124,9 @@ export const Filter = ({ setFiltering }) => {
               type="text"
               value={mileageMin}
               name="mileageMin"
-              format="###,###"
+              format="####,####"
               padding="65px"
-              maxLength={6}
+              maxLength={7}
               decimalScale={3}
               thousandSeparator={true}
               onChange={handleChangeMileage}
@@ -139,9 +138,9 @@ export const Filter = ({ setFiltering }) => {
               type="text"
               value={mileageMax}
               name="mileageMax"
-              format="###,###"
+              format="####,####"
               padding="45px"
-              maxLength={6}
+              maxLength={7}
               decimalScale={3}
               thousandSeparator={true}
               onChange={handleChangeMileage}

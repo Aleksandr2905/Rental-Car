@@ -38,20 +38,20 @@ const carsSlice = createSlice({
       .addCase(requestCatalogCar.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+      })
+      .addCase(requestFilters.pending, state => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(requestFilters.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.cars = action.payload;
+        state.error = null;
+      })
+      .addCase(requestFilters.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
       });
-    // .addCase(requestFilters.pending, state => {
-    //   state.isLoading = true;
-    //   state.error = null;
-    // })
-    // .addCase(requestFilters.fulfilled, (state, action) => {
-    //   state.isLoading = false;
-    //   state.cars = action.payload;
-    //   state.error = null;
-    // })
-    // .addCase(requestFilters.rejected, (state, action) => {
-    //   state.isLoading = false;
-    //   state.error = action.payload;
-    // });
   },
 });
 

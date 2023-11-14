@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Btn = styled.a`
-  display: flex;
   width: 168px;
   margin-top: 24px;
   padding: 12px 50px;

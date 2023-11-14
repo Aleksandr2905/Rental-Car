@@ -18,9 +18,7 @@ export const LoadMore = ({ page, setPage, setShowButton }) => {
 
   return (
     <>
-      <Button type="button" onClick={handleLoadMore}>
-        Load more
-      </Button>
+      <Button onClick={handleLoadMore}>Load more</Button>
     </>
   );
 };

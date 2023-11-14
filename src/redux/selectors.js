@@ -1,5 +1,5 @@
 export const selectCars = state => state.cars;
-export const selectFilters = state => state.filter;
+export const selectFilter = state => state.filter;
 export const selectMake = state => state.filter.make;
 export const selectPrice = state => state.filter.price;
 export const selectMileageMin = state => state.filter.mileageMin;

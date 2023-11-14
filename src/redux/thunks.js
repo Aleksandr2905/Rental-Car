@@ -1,4 +1,4 @@
-import { createAction, createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
   fetchRequestCarById,
   fetchRequestCatalogCar,
@@ -42,7 +42,7 @@ export const requestCarById = createAsyncThunk(
   }
 );
 
-export const requestFilters = createAction(
+export const requestFilters = createAsyncThunk(
   'advert/requestFilters',
   async (_, thunkAPI) => {
     try {

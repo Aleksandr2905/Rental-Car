@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
-import { Backdrop, BtnCloseModal } from './Modal.styled';
+import ReactDOM from 'react-dom';
+import { Backdrop, BtnCloseModal, Container } from './Modal.styled';
 import sprite from '../../images/sprite.svg';
 
-export const Modal = ({ onCloseModal, children }) => {
+export const Modal = ({ isOpen, onCloseModal, children }) => {
   const onBackdropClick = event => {
     if (event.target === event.currentTarget) {
       onCloseModal();
@@ -11,24 +12,39 @@ export const Modal = ({ onCloseModal, children }) => {
 
   useEffect(() => {
     const handleEscape = event => {
-      if (event.code === 'Escape') {
+      if (isOpen && event.key === 'Escape') {
         onCloseModal();
       }
     };
-    document.addEventListener('keydown', handleEscape);
+    document.body.style.overflow = isOpen ? 'hidden' : 'auto';
+    window.addEventListener('keydown', handleEscape);
     return () => {
-      document.removeEventListener('keydown', handleEscape);
+      window.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'auto';
     };
-  }, [onCloseModal]);
+  }, [isOpen, onCloseModal]);
 
-  return (
+  if (!isOpen) {
+    return null;
+  }
+
+  return ReactDOM.createPortal(
     <Backdrop onClick={onBackdropClick}>
-      <BtnCloseModal type="button" onClick={onCloseModal}>
-        <svg width="24" height="24">
-          <use href={`${sprite}#icon-x`} />
-        </svg>
-      </BtnCloseModal>
-      {children}
-    </Backdrop>
+      <Container
+        id="modal-container"
+        key="modal"
+        animate={isOpen ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
+        exit={{ opacity: 0, scale: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <BtnCloseModal type="button" onClick={onCloseModal}>
+          <svg width="24" height="24">
+            <use href={`${sprite}#icon-x`} />
+          </svg>
+        </BtnCloseModal>
+        {children}
+      </Container>
+    </Backdrop>,
+    document.getElementById('modal-root')
   );
 };
