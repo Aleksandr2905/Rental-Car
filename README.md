@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# Car Rental Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Car Rental Application, a web application designed for a car
+rental company operating in Ukraine.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+### Home Page
 
-### `npm start`
+- Overview of the services provided by the company.
+- Intuitive navigation to different sections of the application.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Car Catalog
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Catalog of cars with various configurations.
+- User-friendly filters for searching cars by brand, hourly rental price, and
+  mileage.
+- Pagination for displaying 12 advertisements per page initially, with a "Load
+  more" button for additional content.
 
-### `npm test`
+### Favorites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Ability to add and remove advertisements to/from the favorites list.
+- Persistent storage of favorite advertisements even after page refresh.
 
-### `npm run build`
+### Advertisement Details
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Detailed information about a specific car and its rental conditions.
+- Modal window for a better user experience.
+- Modal window can be closed by clicking the close button, on the backdrop, or
+  by pressing the 'Esc' key.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Contact
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- "Rental car" button to connect with the company via phone (+380730000000).
 
-### `npm run eject`
+### Additional Features
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Displaying the car mileage formatted with commas (e.g., 4,500).
+- Rental car link to facilitate user communication.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Filtering
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Dropdown menu for filtering cars by brand using makes.json.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## How to Use
 
-## Learn More
+1. Clone the repository.
+2. Open the respective HTML files in your web browser.
+3. Explore the different sections of the application.
+4. Use filters and buttons to interact with advertisements.
+5. Enjoy the seamless experience of exploring and renting cars!
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Dependencies
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- HTML
+- CSS
+- JavaScript
+- React/Redux Toolkit
+- React Router Dom
+- React Select
+- Framer Motion
+- Styled Components

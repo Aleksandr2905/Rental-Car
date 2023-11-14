@@ -56,11 +56,19 @@ export const CarItem = ({ car }) => {
     <CardWrapper>
       <ImgWrap>
         <FavorWrap onClick={handleFavorite}>
-          <BtnFavor type="button">
-            <svg width="18" height="18">
-              <use href={`${sprite}#icon-heart`} />
-            </svg>
-          </BtnFavor>
+          {!isFavorite ? (
+            <BtnFavor type="button">
+              <svg width="18" height="18">
+                <use href={`${sprite}#icon-heart`} />
+              </svg>
+            </BtnFavor>
+          ) : (
+            <BtnFavor type="button">
+              <svg width="18" height="18">
+                <use href={`${sprite}#icon-active`} />
+              </svg>
+            </BtnFavor>
+          )}
         </FavorWrap>
         <ImgCar
           src={car.img || noImg}
