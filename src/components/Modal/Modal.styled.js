@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Backdrop = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
   position: fixed;
   top: 0;
   left: 0;

@@ -1,5 +1,6 @@
 import React from 'react';
 import noImg from '../../images/no-photo.png';
+
 import {
   AccessoriesItem,
   AccessoriesList,
