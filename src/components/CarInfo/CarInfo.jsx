@@ -61,8 +61,6 @@ export const CarInfo = ({ isModalOpen, onCloseModal, car }) => {
           {car.accessories.map(item => (
             <AccessoriesItem key={item}>{item}</AccessoriesItem>
           ))}
-        </AccessoriesList>
-        <AccessoriesList>
           {car.functionalities.map(item => (
             <AccessoriesItem key={item}>{item}</AccessoriesItem>
           ))}

@@ -84,9 +84,20 @@ export const CardInfoCar = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   row-gap: 4px;
+  column-gap: 6px;
   align-items: center;
+  color: var(--secondary-text-color);
+`;
+
+export const CardInfoCarItem = styled.p`
   font-size: 12px;
   font-weight: 400;
-  line-height: 18px;
+  line-height: 1.5;
+  padding-right: 6px;
+  border-right: 1px solid rgba(18, 20, 23, 0.1);
   color: var(--secondary-text-color);
+
+  &:last-child {
+    border-right: none;
+  }
 `;

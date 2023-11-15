@@ -16,6 +16,7 @@ import {
   ImgWrap,
   BtnFavor,
   FavorWrap,
+  CardInfoCarItem,
 } from './CarItem.styled';
 import { BtnLearnMore } from '../BtnLearnMore/BtnLearnMore';
 import { CarInfo } from '../CarInfo/CarInfo.jsx';
@@ -80,7 +81,6 @@ export const CarItem = ({ car }) => {
           }}
         />
       </ImgWrap>
-
       <CardTitle>
         <MakeCar>
           {car.make}
@@ -90,13 +90,13 @@ export const CarItem = ({ car }) => {
         <PriceCar>{car.rentalPrice}</PriceCar>
       </CardTitle>
       <CardInfoCar>
-        <p>{city} | </p>
-        <p>{country} | </p>
-        <p>{car.rentalCompany} | </p>
-        <p>{car.type} | </p>
-        <p>{car.model} | </p>
-        <p>{car.id} | </p>
-        <p>{car.functionalities[0]}</p>
+        <CardInfoCarItem>{city}</CardInfoCarItem>
+        <CardInfoCarItem>{country}</CardInfoCarItem>
+        <CardInfoCarItem>{car.rentalCompany}</CardInfoCarItem>
+        <CardInfoCarItem>{car.type}</CardInfoCarItem>
+        <CardInfoCarItem>{car.model}</CardInfoCarItem>
+        <CardInfoCarItem>{car.id}</CardInfoCarItem>
+        <CardInfoCarItem>{car.functionalities[0]}</CardInfoCarItem>
       </CardInfoCar>
       <BtnLearnMore car={car} onClick={onOpenModal} />
 

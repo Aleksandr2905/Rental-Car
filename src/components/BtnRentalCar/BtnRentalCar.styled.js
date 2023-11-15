@@ -6,6 +6,7 @@ export const Btn = styled.a`
   padding: 12px 50px;
   border-radius: 12px;
   border: none;
+  outline: none;
   font-size: 14px;
   font-weight: 600;
   line-height: 20px;
@@ -14,5 +15,6 @@ export const Btn = styled.a`
 
   &:hover {
     background-color: var(--color-hover);
+    outline: none;
   }
 `;

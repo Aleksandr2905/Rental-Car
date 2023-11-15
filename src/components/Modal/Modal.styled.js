@@ -15,10 +15,8 @@ export const Backdrop = styled.div`
 
 export const Container = styled.div`
   position: relative;
-  background-color: #ffffff;
-  border: 1px solid #dce3e5cc;
+  background-color: var(--primary-background-color);
   border-radius: 24px;
-  box-shadow: 0px 4px 57px 0px rgba(17, 17, 17, 0.05);
   z-index: 1000;
 `;
 
@@ -29,6 +27,7 @@ export const BtnCloseModal = styled.button`
   background-color: transparent;
   border: none;
   outline: none;
+  overflow: hidden;
   padding: 0;
 
   & svg {

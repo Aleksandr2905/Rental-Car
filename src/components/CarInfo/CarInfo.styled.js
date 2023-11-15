@@ -26,7 +26,7 @@ export const ModalContent = styled.div`
 
 export const ImgModal = styled.img`
   width: 100%;
-  height: 268px;
+  height: 248px;
   object-fit: cover;
   border-radius: 14px;
   margin-bottom: 14px;
@@ -93,8 +93,8 @@ export const Title = styled.p`
 export const AccessoriesList = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 4px;
-  gap: 6px;
+  row-gap: 4px;
+  column-gap: 6px;
 `;
 
 export const AccessoriesItem = styled.li`
@@ -120,14 +120,15 @@ export const ConditionsList = styled.ul`
 export const ConditionsItem = styled.li`
   padding: 7px 14px;
   border-radius: 35px;
+  font-family: Montserrat, sans-serif;
   font-size: 12px;
+  font-style: normal;
   font-weight: 400;
   line-height: 18px;
-  letter-spacing: -0.24px;
   background-color: var(--conditions-background-color);
   color: var(--conditions-text-color);
 
-  span {
+  & span {
     font-weight: 600;
     color: var(--accent-color);
   }
