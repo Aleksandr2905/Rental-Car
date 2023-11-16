@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const NavigationWrap = styled.div`
   display: flex;
-  max-width: 1440px;
+  width: 100%;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;

@@ -1,19 +1,21 @@
 import styled from 'styled-components';
 
 export const HomeWrapper = styled.div`
-  position: relative;
+  position: absolute;
+  overflow: hidden;
   height: 100vh;
   width: 100vw;
 `;
 
 export const HomeTitle = styled.h1`
   position: absolute;
-  width: 500px;
+  width: 520px;
   top: 100px;
-  right: 50px;
-  font-size: 42px;
+  left: 50px;
+  font-size: 44px;
   font-weight: 600;
   text-transform: uppercase;
+  margin-bottom: 24px;
   color: var(--primary-text-color);
 `;
 
@@ -21,15 +23,14 @@ export const Img = styled.img`
   position: absolute;
   bottom: 0;
   right: 0;
-  max-height: 100%;
-  max-width: 1000px;
+  max-width: 80%;
   z-index: 5;
 `;
 
-export const ImgCity = styled.img`
+export const ImgRoad = styled.img`
   position: absolute;
-  bottom: 110px;
-  left: 0px;
-  max-height: 100%;
-  max-width: 100%;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
 `;

@@ -1,14 +1,14 @@
 import React from 'react';
 import car from '../../images/car-home.png';
-import city from '../../images/city.png';
-import { HomeTitle, HomeWrapper, Img, ImgCity } from './Home.styled';
+import road from '../../images/road.png';
+import { HomeTitle, HomeWrapper, Img, ImgRoad } from './Home.styled';
 
 export const Home = () => {
   return (
     <HomeWrapper>
       <HomeTitle>Selection of cars for comfortable travel</HomeTitle>
       <Img src={car} alt="car" />
-      <ImgCity src={city} alt="city" />
+      <ImgRoad src={road} alt="road" />
     </HomeWrapper>
   );
 };
