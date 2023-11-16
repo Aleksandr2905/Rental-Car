@@ -4,7 +4,7 @@ import { selectFavorite } from '../../redux/selectors';
 import { CarList } from '../../components/CarList/CarList';
 import { FavoriteWrap } from './Favorites.styled';
 
-export const Favorites = () => {
+const Favorites = () => {
   const { favoriteCars } = useSelector(selectFavorite);
   return (
     <>
@@ -19,3 +19,5 @@ export const Favorites = () => {
     </>
   );
 };
+
+export default Favorites;

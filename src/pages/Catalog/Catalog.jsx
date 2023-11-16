@@ -7,7 +7,7 @@ import { selectCars, selectFilter } from '../../redux/selectors';
 import { Loader } from '../../components/Loader/Loader';
 import { LoadMore } from '../../components/LoadMore/LoadMore';
 
-export const Catalog = () => {
+const Catalog = () => {
   const dispatch = useDispatch();
   const { cars, isLoading } = useSelector(selectCars);
   const [page, setPage] = useState(1);
@@ -71,3 +71,5 @@ export const Catalog = () => {
     </>
   );
 };
+
+export default Catalog;
