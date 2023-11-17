@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react';
+import ReactDOM from 'react-dom';
 import { Backdrop, BtnCloseModal, Container } from './Modal.styled';
 import sprite from '../../images/sprite.svg';
 
-export const Modal = ({ isModalOpen, onCloseModal, children }) => {
+const modalPortal = document.getElementById('modal-portal');
+
+const Modal = ({ isModalOpen, onCloseModal, children }) => {
   const onBackdropClick = event => {
     if (event.target === event.currentTarget) {
       onCloseModal();
@@ -27,7 +30,7 @@ export const Modal = ({ isModalOpen, onCloseModal, children }) => {
     return null;
   }
 
-  return (
+  return ReactDOM.createPortal(
     <Backdrop onClick={onBackdropClick}>
       <Container>
         <BtnCloseModal type="button" onClick={onCloseModal}>
@@ -37,6 +40,9 @@ export const Modal = ({ isModalOpen, onCloseModal, children }) => {
         </BtnCloseModal>
         {children}
       </Container>
-    </Backdrop>
+    </Backdrop>,
+    modalPortal
   );
 };
+
+export default Modal;

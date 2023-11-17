@@ -16,7 +16,7 @@ import {
   TitleModal,
 } from './CarInfo.styled';
 import { BtnRentalCar } from '../BtnRentalCar/BtnRentalCar';
-import { Modal } from '../Modal/Modal';
+import Modal from '../Modal/Modal';
 
 export const CarInfo = ({ isModalOpen, onCloseModal, car }) => {
   const {
