@@ -2,7 +2,6 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const BtnCatalog = styled(NavLink)`
-  width: 168px;
   margin-top: 24px;
   padding: 12px 50px;
   border-radius: 12px;
