@@ -8,7 +8,6 @@ import { addFavorite, removeFavorite } from '../../redux/favoriteReducer.js';
 import {
   CardInfoCar,
   CardTitle,
-  CardWrapper,
   ImgCar,
   MakeCar,
   ModelCar,
@@ -65,7 +64,7 @@ export const CarItem = ({ car }) => {
     setIsModalOpen(false);
   };
   return (
-    <CardWrapper>
+    <>
       <ImgWrap>
         <FavorWrap onClick={handleFavorite}>
           {!isFavorite ? (
@@ -118,6 +117,6 @@ export const CarItem = ({ car }) => {
           car={car}
         />
       )}
-    </CardWrapper>
+    </>
   );
 };

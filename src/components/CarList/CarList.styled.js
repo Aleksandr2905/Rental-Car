@@ -17,6 +17,9 @@ export const List = styled.ul`
 `;
 
 export const CardWrap = styled.li`
+  display: flex;
+  flex-direction: column;
   width: 274px;
   height: 426px;
+  position: relative;
 `;

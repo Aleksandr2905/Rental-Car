@@ -1,13 +1,5 @@
 import styled from 'styled-components';
 
-export const CardWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 274px;
-  height: 426px;
-  position: relative;
-`;
-
 export const ImgWrap = styled.div`
   width: 100%;
   height: 268px;
