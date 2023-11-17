@@ -22,6 +22,17 @@ import { BtnLearnMore } from '../BtnLearnMore/BtnLearnMore';
 import { CarInfo } from '../CarInfo/CarInfo.jsx';
 
 export const CarItem = ({ car }) => {
+  const {
+    id,
+    img,
+    make,
+    model,
+    year,
+    rentalPrice,
+    rentalCompany,
+    type,
+    functionalities,
+  } = car;
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
@@ -35,7 +46,7 @@ export const CarItem = ({ car }) => {
     }
   }, [car, favoriteCars]);
 
-  const handleFavorite = event => {
+  const handleFavorite = () => {
     setIsFavorite(!isFavorite);
 
     if (isFavorite) {
@@ -47,7 +58,7 @@ export const CarItem = ({ car }) => {
 
   const onOpenModal = () => {
     setIsModalOpen(true);
-    dispatch(requestCarById(car.id));
+    dispatch(requestCarById(id));
   };
 
   const onCloseModal = () => {
@@ -72,8 +83,8 @@ export const CarItem = ({ car }) => {
           )}
         </FavorWrap>
         <ImgCar
-          src={car.img || noImg}
-          alt={car.make}
+          src={img || noImg}
+          alt={make}
           width="274"
           height="268"
           onError={e => {
@@ -83,20 +94,20 @@ export const CarItem = ({ car }) => {
       </ImgWrap>
       <CardTitle>
         <MakeCar>
-          {car.make}
-          <ModelCar>&#x20;{car.model},&#x20;</ModelCar>
-          {car.year}
+          {make}
+          <ModelCar>&#x20;{model},&#x20;</ModelCar>
+          {year}
         </MakeCar>
-        <PriceCar>{car.rentalPrice}</PriceCar>
+        <PriceCar>{rentalPrice}</PriceCar>
       </CardTitle>
       <CardInfoCar>
         <CardInfoCarItem>{city}</CardInfoCarItem>
         <CardInfoCarItem>{country}</CardInfoCarItem>
-        <CardInfoCarItem>{car.rentalCompany}</CardInfoCarItem>
-        <CardInfoCarItem>{car.type}</CardInfoCarItem>
-        <CardInfoCarItem>{car.model}</CardInfoCarItem>
-        <CardInfoCarItem>{car.id}</CardInfoCarItem>
-        <CardInfoCarItem>{car.functionalities[0]}</CardInfoCarItem>
+        <CardInfoCarItem>{rentalCompany}</CardInfoCarItem>
+        <CardInfoCarItem>{type}</CardInfoCarItem>
+        <CardInfoCarItem>{model}</CardInfoCarItem>
+        <CardInfoCarItem>{id}</CardInfoCarItem>
+        <CardInfoCarItem>{functionalities[0]}</CardInfoCarItem>
       </CardInfoCar>
       <BtnLearnMore car={car} onClick={onOpenModal} />
 

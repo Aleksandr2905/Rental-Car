@@ -9,9 +9,11 @@ const Favorites = () => {
   return (
     <>
       <FavoriteWrap>
-        <h1>Your Favorite Cars</h1>
         {favoriteCars.length > 0 ? (
-          <CarList carsArr={favoriteCars} />
+          <>
+            <h1>Your Favorite Cars</h1>
+            <CarList carsArr={favoriteCars} />
+          </>
         ) : (
           <h2>Not Favorite Cars</h2>
         )}
