@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { selectFavorite } from '../../redux/selectors';
 import { CarList } from '../../components/CarList/CarList';
 import { FavoriteWrap } from './Favorites.styled';
+import { NavLink } from 'react-router-dom';
 
 const Favorites = () => {
   const { favoriteCars } = useSelector(selectFavorite);
@@ -15,7 +16,10 @@ const Favorites = () => {
             <CarList carsArr={favoriteCars} />
           </>
         ) : (
-          <h2>Not Favorite Cars</h2>
+          <h2>
+            At the moment, you don't have any favorite cars. To select cars,
+            please go to the page <NavLink to="/catalog">Catalog</NavLink>
+          </h2>
         )}
       </FavoriteWrap>
     </>

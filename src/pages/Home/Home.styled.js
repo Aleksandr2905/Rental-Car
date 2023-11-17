@@ -7,11 +7,15 @@ export const HomeWrapper = styled.div`
   width: 100vw;
 `;
 
-export const HomeTitle = styled.h1`
+export const TitleWrap = styled.div`
   position: absolute;
   width: 520px;
   top: 100px;
   left: 50px;
+  z-index: 1;
+`;
+
+export const HomeTitle = styled.h1`
   font-size: 44px;
   font-weight: 600;
   text-transform: uppercase;
