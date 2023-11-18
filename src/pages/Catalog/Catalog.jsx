@@ -6,6 +6,7 @@ import { Filter } from '../../components/Filter/Filter';
 import { selectCars, selectFilter } from '../../redux/selectors';
 import { Loader } from '../../components/Loader/Loader';
 import { LoadMore } from '../../components/LoadMore/LoadMore';
+import ScrollToTop from '../../components/BtnScrollToTop/BtnScrollToTop';
 
 const Catalog = () => {
   const dispatch = useDispatch();
@@ -68,6 +69,7 @@ const Catalog = () => {
             />
           )
         ))}
+      <ScrollToTop />
     </>
   );
 };
