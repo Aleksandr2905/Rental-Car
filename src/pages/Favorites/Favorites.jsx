@@ -5,6 +5,7 @@ import { CarList } from '../../components/CarList/CarList';
 import { FavoriteText, FavoriteTitle, FavoriteWrap } from './Favorites.styled';
 import BtnToCatalog from '../../components/BtnToCatalog/BtnToCatalog';
 import noCars from '../../images/favorites-not-car.png';
+import ScrollToTop from '../../components/BtnScrollToTop/BtnScrollToTop';
 
 const Favorites = () => {
   const { favoriteCars } = useSelector(selectFavorite);
@@ -25,6 +26,7 @@ const Favorites = () => {
           <img src={noCars} alt="no cars" width="500" />
         </FavoriteWrap>
       )}
+      <ScrollToTop />
     </>
   );
 };
