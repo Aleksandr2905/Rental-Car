@@ -20,6 +20,6 @@ export const CardWrap = styled.li`
   display: flex;
   flex-direction: column;
   width: 274px;
-  height: 426px;
+  height: 446px;
   position: relative;
 `;
